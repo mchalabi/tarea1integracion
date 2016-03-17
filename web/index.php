@@ -37,21 +37,21 @@ $app->post('/validarfirma', function() use($app) {
   $value1= $_REQUEST('mensaje');
   $value2= $_REQUEST('hash');
 
-  foreach (getallheaders() as $name => $value) {
+ // foreach (getallheaders() as $name => $value) {
     
-    if ($name == null){
-    	return json_encode('Http 400');
-    }
-    if ( is_string(gettype($name)) == false){
-    	return json_encode('Http 400');
-    } 
-  }
+   // if ($name == null){
+   // 	return json_encode('Http 400');
+   // }
+    //if ( is_string(gettype($name)) == false){
+    //	return json_encode('Http 400');
+    //} 
+  //}
 
   $sha256= hash('sha256', $value1);
 
-  if($sha256 == null){
-  	return json_encode('Htpp 500');
-  }
+  //if($sha256 == null){
+  	//return json_encode('Htpp 500');
+  //}
   
   if($sha256== $value2){
   	$devolver= value1 . ' true';
@@ -60,7 +60,7 @@ $app->post('/validarfirma', function() use($app) {
     $devolver= value1 . ' false'; 
   }
 
-  return json_encode($devolver);
+  return $devolver;
 
 });
 
