@@ -57,7 +57,7 @@ $app->post('/validarfirma', function() use($app) {
   $sha256= hash('sha256', $value1);
 
   if($sha256 == null){
-  	return  $app->json('Http error 500', 500);;
+  	return  $app->json('Http error 500', 500);
   }
   
   if($sha256 == $minus){
