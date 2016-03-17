@@ -24,7 +24,8 @@ $app->get('/', function() use($app) {
 
 $app->get('/status', function() use($app) {
   
-  return json_encode('Http 201');
+  return $app->json('Http 201', 201);
+ // return json_encode('Http 201');
 });
 
 $app->get('/texto', function() use($app) {
@@ -40,18 +41,18 @@ $app->post('/validarfirma', function() use($app) {
   foreach (getallheaders() as $name => $value) {
     
     if ($name == null){
-    	return 'Http 400';
+    	return json_encode('Http 400');
     }
     if ( is_string(gettype($name)) == false){
-    	return 'Http 400';
+    	return json_encode('Http 400');
     } 
   }
 
   $sha256= hash('sha256', $value1);
 
-  //if($sha256 == null){
-  	//return json_encode('Htpp 500');
-  //}
+  if($sha256 == null){
+  	return json_encode('Htpp 500');
+  }
   
   if($sha256== $value2){
   	$devolver= value1 . ' true';
