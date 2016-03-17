@@ -38,7 +38,7 @@ $app->get('/texto', function() use($app) {
 });
 
 
-$app->post('/validarfirma', function() use($app) {
+$app->post('/validarFirma', function() use($app) {
   $value1= $_REQUEST('mensaje');
 
   $value2= $_REQUEST('hash');
