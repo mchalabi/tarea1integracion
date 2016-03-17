@@ -56,22 +56,23 @@ $app->post('/validarFirma', function() use($app) {
     } 
   }*/
 
-  $sha256= hash('sha256', $value1);
+  $sha2561= hash('sha256', $value1);
 
-  if($sha256 == null){
+  if($sha2561 == null){
   	return  $app->json('Http error 500', 500);
   }
   
-  elseif($sha256 == $minus){
+  elseif($sha2561 == $minus){
   	$bool = true;
-  	$var = array('valido'=>$bool, 'mensaje'=>$value1);
-  	return json_encode($var);
+  	$var = json_encode(array('valido'=>$bool, 'mensaje'=>$value1));
+
+  	return $var;
   }
 
   else{
   	$bool1 = false;
-  	$var2 = array('valido'=>$bool1, 'mensaje'=>$value1);
-  	return json_encode($var2);
+  	$var2 = json_encode(array('valido'=>$bool1, 'mensaje'=>$value1));
+  	return $var2;
   }
 
 });
