@@ -62,12 +62,14 @@ $app->post('/validarfirma', function() use($app) {
   
   if($sha256 == $minus){
   	$bool = true;
-  	return json_encode(array('valido'=>$bool, 'mensaje'=>$value1));
+  	$var = array('valido'=>$bool, 'mensaje'=>$value1);
+  	return json_encode($var);
   }
 
   else{
   	$bool1 = false;
-  	return json_encode(array('valido'=>$bool1, 'mensaje'=>$value1))
+  	
+  	return json_encode(array('valido'=>$bool1, 'mensaje'=>$value1));
   }
 
   //return json_encode($value1);
