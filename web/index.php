@@ -58,13 +58,14 @@ $app->post('/validarFirma', function() use($app) {
 
   $sha2561= hash('sha256', $value1);
 
-  if($sha2561 == null){
+ if($sha2561 == null){
   	return  $app->json('Http error 500', 500);
   }
   
   elseif($sha2561 == $minus){
-  	$bool = true; 
-  	$var = json_encode(array('valido'=>$bool, 'mensaje'=>$value1););
+  	$bool = true;
+  	$array = array('valido'=>$bool, 'mensaje'=>$value1);
+  	$var = json_encode($array);
 
   	return $var;
   }
