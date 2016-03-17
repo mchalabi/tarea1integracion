@@ -40,29 +40,34 @@ $app->get('/texto', function() use($app) {
 
 $app->post('/validarfirma', function() use($app) {
   $value1= $_REQUEST('mensaje');
-  $value2= $_REQUEST('hash');
 
+  $value2= $_REQUEST('hash');
+  $minus= strtolower ($value2);
+  
   foreach (getallheaders() as $name => $value) {
     
     if ($name == null){
-    	return json_encode('Http 400');
+    	return  $app->json('Http error 400', 400);
     }
     if ( is_string(gettype($name)) == false){
-    	return json_encode('Http 400');
+    	return  $app->json('Http error 400', 400);
     } 
   }
 
   $sha256= hash('sha256', $value1);
 
   if($sha256 == null){
-  	return json_encode('Htpp 500');
+  	return  $app->json('Http error 500', 500);;
   }
   
-  if($sha256== $value2){
-  	$devolver= value1 . ' true';
+  if($sha256 == $minus){
+  	$bool = true;
+  	return json_encode(array('valido'=>$bool, 'mensaje'=>$value1));
   }
+
   else{
-    $devolver= value1 . ' false'; 
+  	$bool1 = false;
+  	return json_encode(array('valido'=>$bool1, 'mensaje'=>$value1))
   }
 
   //return json_encode($value1);
