@@ -42,7 +42,7 @@ $app->post('/validarFirma', function() use($app) {
   $value1= $_REQUEST('mensaje');
 
   $value2= $_REQUEST('hash');
-  $minus= strtolower ($value2);
+  $minus= strtolower($value2);
   
   /*foreach (getallheaders() as $name => $value) {
     
@@ -62,7 +62,7 @@ $app->post('/validarFirma', function() use($app) {
   	return  $app->json('Http error 500', 500);
   }
   
-  if($sha256 == $minus){
+  elseif($sha256 == $minus){
   	$bool = true;
   	$var = array('valido'=>$bool, 'mensaje'=>$value1);
   	return json_encode($var);
@@ -73,9 +73,6 @@ $app->post('/validarFirma', function() use($app) {
   	$var2 = array('valido'=>$bool1, 'mensaje'=>$value1);
   	return json_encode($var2);
   }
-
-  //return json_encode($value1);
-  
 
 });
 
