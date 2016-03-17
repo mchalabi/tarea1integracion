@@ -39,9 +39,9 @@ $app->get('/texto', function() use($app) {
 
 
 $app->post('/validarFirma', function() use($app) {
-  $value1= $_REQUEST('mensaje');
+  $value1= $_REQUEST ['mensaje'];
 
-  $value2= $_REQUEST('hash');
+  $value2= $_REQUEST ['hash'];
   $minus= strtolower($value2);
   
   /*foreach (getallheaders() as $name => $value) {
