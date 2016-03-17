@@ -37,15 +37,15 @@ $app->post('/validarfirma', function() use($app) {
   $value1= $_REQUEST('mensaje');
   $value2= $_REQUEST('hash');
 
- // foreach (getallheaders() as $name => $value) {
+  foreach (getallheaders() as $name => $value) {
     
-   // if ($name == null){
-   // 	return json_encode('Http 400');
-   // }
-    //if ( is_string(gettype($name)) == false){
-    //	return json_encode('Http 400');
-    //} 
-  //}
+    if ($name == null){
+    	return 'Http 400';
+    }
+    if ( is_string(gettype($name)) == false){
+    	return 'Http 400';
+    } 
+  }
 
   $sha256= hash('sha256', $value1);
 
