@@ -29,7 +29,7 @@ $app->get('/status', function() use($app) {
 
 $app->get('/texto', function() use($app) {
   
-  return 'Http 201';
+  return json_encode('Http 201');
 });
 
 
@@ -50,7 +50,7 @@ $app->post('/validarfirma', function() use($app) {
   $sha256= hash('sha256', $value1);
 
   if($sha256 == null){
-  	returno 'Htpp 500';
+  	return 'Htpp 500';
   }
   
   if($sha256== $value2){
