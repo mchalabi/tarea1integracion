@@ -29,8 +29,10 @@ $app->get('/status', function() use($app) {
 });
 
 $app->get('/texto', function() use($app) {
-  
-  return json_encode('Http 201');
+  $texto = file_get_contents("https://s3.amazonaws.com/files.principal/texto.txt");
+  $sha2562= hash('sha256', $texto);
+  $devolver2 = $texto . ', ' . $sha2562;
+  return $app->json($devolver2, 201)
 });
 
 
@@ -61,8 +63,8 @@ $app->post('/validarfirma', function() use($app) {
     $devolver= value1 . ' false'; 
   }
 
-    return json_encode($value1);
-  //return $app->json($value1, 201);
+  //return json_encode($value1);
+  return $app->json($devolver, 201);
 
 });
 
