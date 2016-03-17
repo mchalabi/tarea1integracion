@@ -47,10 +47,12 @@ $app->post('/validarFirma', function() use($app) {
   foreach (getallheaders() as $name => $value) {
     
     if ($name == null){
-    	return  $app->json('Http error 400', 400);
+    	$variable1 = $app->json('Http error 400', 400);
+    	return  $variable1;
     }
     if ( is_string(gettype($name)) == false){
-    	return  $app->json('Http error 400', 400);
+    	$variable1 = $app->json('Http error 400', 400);
+    	return  $variable1;
     } 
   }
 
@@ -68,12 +70,11 @@ $app->post('/validarFirma', function() use($app) {
 
   else{
   	$bool1 = false;
-  	
   	return json_encode(array('valido'=>$bool1, 'mensaje'=>$value1));
   }
 
   //return json_encode($value1);
-  return $app->json($devolver, 201);
+  
 
 });
 
