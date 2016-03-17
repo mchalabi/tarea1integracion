@@ -64,7 +64,8 @@ $app->post('/validarFirma', function() use($app) {
   
   if($sha2561 == $minus){
   	$bool = true;
-  	$var = json_encode(array('valido'=>$bool, 'mensaje'=>$value1));
+  	$array = array('valido'=>$bool, 'mensaje'=>$value1);
+  	$var = json_encode($array);
 
   	return $var;
   }
