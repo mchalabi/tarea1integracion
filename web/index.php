@@ -44,7 +44,7 @@ $app->post('/validarFirma', function() use($app) {
   $value2= $_REQUEST ['hash'];
   $minus= strtolower($value2);
   
-  /*foreach (getallheaders() as $name => $value) {
+  foreach (getallheaders() as $name => $value) {
     
     if ($name == null){
     	$variable1 = $app->json('Http error 400', 400);
@@ -54,7 +54,7 @@ $app->post('/validarFirma', function() use($app) {
     	$variable1 = $app->json('Http error 400', 400);
     	return  $variable1;
     } 
-  }*/
+  }
 
   $sha2561= hash('sha256', $value1);
 
