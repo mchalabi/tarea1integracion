@@ -62,7 +62,7 @@ $app->post('/validarFirma', function() use($app) {
   	return  $app->json('Http error 500', 500);
   }
   
-  elseif($sha2561 == $minus){
+  /*elseif($sha2561 == $minus){
   	$bool = true;
   	$var = json_encode(array('valido'=>$bool, 'mensaje'=>$value1));
 
@@ -73,7 +73,7 @@ $app->post('/validarFirma', function() use($app) {
   	$bool1 = false;
   	$var2 = json_encode(array('valido'=>$bool1, 'mensaje'=>$value1));
   	return $var2;
-  }
+  }*/
 
 });
 
