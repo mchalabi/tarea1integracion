@@ -44,18 +44,18 @@ $app->post('/validarFirma', function() use($app) {
   $value2= $_REQUEST ['hash'];
   $minus= strtolower($value2);
   
-  foreach (getallheaders() as $name => $value) {
-    
-    if ($name == null){
+  
+    if ($value1 == null){
     	$variable1 = $app->json('Http error 400', 400);
     	return  $variable1;
     }
-    if ( is_string(gettype($name)) == false){
-    	$variable1 = $app->json('Http error 400', 400);
-    	return  $variable1;
-    } 
-  }
 
+    if ($value2 == null){
+    	$variable2 = $app->json('Http error 400', 400);
+    	return  $variable2;
+    }
+     
+  
   $sha2561= hash('sha256', $value1);
 
  if($sha2561 == null){
