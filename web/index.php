@@ -61,7 +61,7 @@ $app->post('/validarfirma', function() use($app) {
     $devolver= value1 . ' false'; 
   }
 
-  return return $app->json($devolver, 201);
+  return $app->json($devolver, 201);
 
 });
 
