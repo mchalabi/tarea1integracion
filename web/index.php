@@ -37,7 +37,7 @@ $app->get('/texto', function() use($app) {
     "foo" => $texto,
     "bar" => $sha2562,
   );
-  return json_encode($array);
+  return app->json($array,201);
 });
 
 
