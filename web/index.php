@@ -32,7 +32,12 @@ $app->get('/texto', function() use($app) {
   $texto = file_get_contents("https://s3.amazonaws.com/files.principal/texto.txt");
   $sha2562= hash('sha256', $texto);
   $devolver2 = $texto . ', ' . $sha2562;
-  return $app->json($devolver2, 201)
+  
+  $array = array(
+    "foo" => $texto,
+    "bar" => $sha2562,
+  );
+  return json_encode($array);
 });
 
 
